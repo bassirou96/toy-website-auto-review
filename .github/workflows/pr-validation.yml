@@ -5,7 +5,7 @@ on: pull_request
 
 env:
   resourceGroupName: pr_${{ github.event.number }}
-  resourceGroupLocation: westus3
+  resourceGroupLocation: northeurope
 
 jobs:
   lint:
