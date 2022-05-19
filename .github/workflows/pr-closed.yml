@@ -8,19 +8,18 @@ on:
 env:
   resourceGroupName: pr_${{ github.event.number }}
 
-  jobs:
+jobs:
   remove:
     runs-on: ubuntu-latest
     steps:
       - uses: azure/login@v1
         name: Sign in to Azure
         with:
-          creds: ${{ secrets.AZURE_CREDENTIALS }}
-
+          creds: ${{ secrets.AZURE_CREDENTIALS }}    
       - uses: Azure/cli@v1
         name: Delete resource group
         with: 
-        inlineScript: |
-             az group delete \
-             --name ${{ env.resourceGroupName }} \
-             --yes
+          inlineScript: |
+            az group delete \
+              --name ${{ env.resourceGroupName }} \
+              --yes
